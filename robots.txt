@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://whdaniels.github.io/sitemap.xml

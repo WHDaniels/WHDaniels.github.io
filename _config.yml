@@ -2,9 +2,9 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: William H. Daniels III # the website title (if blank, full name will be used instead)
 first_name: William
-middle_name: blank
+middle_name:
 last_name: Daniels
 email: whdaniels@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"

@@ -2,24 +2,22 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: M.S. in Computer Science, <a href='https://www.northwestern.edu/'>Northwestern University</a>
 
 profile:
-  align: right
-  image: prof_pic.jpg
+  align: left
+  image: my_pic.png
   image_circular: false # crops the image to make it circular
-  address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  address:
 
 news: true  # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+<b>About me:</b> I'm a recent computer science graduate with a heavy interest in applying the power of recent deep learning systems to unique problems. Historically my research has revolved around conditional image generation, specifically colorization of 2D images in cartoon domains, but I'm also very invested in and have experience with utilizing from-scratch neural networks as creature brains and evolving them towards some very cool tasks!
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+<b>Previously:</b> 
+I received my M.S. in Computer Science from Northwestern Univeristy, advised by Dr. Aggelos Katsagellos. During the summer and fall of 2022 I interned at NASA's Goddard Space Flight Center under Dr. Stephanie Schollaert Uz and Troy Ames. I obtained my Bachelor's degree in Computer Science from Louisiana State University.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Links to my social application connections (Email, LinkedIn, GitHub, etc.) are available below. My preferred method of contact is email.

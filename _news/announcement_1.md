@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2023-03-14 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+I've graduated with my Master of Science in Computer Science (honors TBD) from Northwestern University!

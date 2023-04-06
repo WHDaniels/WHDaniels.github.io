@@ -1,81 +1,101 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
-importance: 3
-category: work
+title: Artifical Life Exploration
+description: Training creatures to evolve their brains and bodies towards a fitness goal.
+img: assets/img/proj3.png
+importance: 2
+category: academic
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+The GitHub repository for this project is located [here](https://github.com/WHDaniels/Artifical-Life-Exploration).
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+### Short Teaser
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ly3jJqFNsN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+### What is this?
+This project is centered around evolving virtual creatures made up of simulated blocks and neurons. We start by spawning unevolved creatures of a certain random configuration, then there creatures "learn" to complete a specified task automatically over time! Throughout this short blog we will walk through this evolution process and how we implement it.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+The creatures in this project are evolved by piecing together "main body" links. Mutations can be: slicing mutations that cut the genome at some point, combination mutations that graft two sliced creatures together, and standard weight mutations that change weights in the creatures brain. A diverse set of ancestors are created, and over time these configurations are evolved by the above mentioned operations.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
-
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+This setup is used as I wanted to enforce a catepillar-like evolution progression. The fitness function used minimizes 
 ```
-{% endraw %}
+y+h
+```
+where y is the final y coordinate of the creature and h is the maximum height the creature reached during its life.
+
+### Starting Genotypes and Mutations
+![Genotype graph](/assets/img/project_3/diagram1.png)
+
+Ancestor (first parent) encodings are generated as shown above, then further encodings are evolved. 
+
+The below figure showcases the two of the three mutation possiblities:
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/project_3/diagram2.png" title="original image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+</div>
+
+Below is an example of how we encode information into our creatures. This is the genetic information that is transfered and mutated over time:
+
+![Genetic information graph](/assets/img/project_3/diagram5.png)
+
+### Creature brain structure
+All creature brains are fully connected. During slicing synapses are removed from removed links/joints, and during combining synapses are retained. Sometimes combining errors (mutations) can occur that prevent weights from being carried over, resulting in random weights.
+
+A visualization of a fully connected brain given a random 4-link creature morphology is shown below:
+
+![Brain graph](/assets/img/project_3/diagram3.png)
+
+### The evolution paradigm
+
+A parallel hill climber is used to evolve creatures over time. An abstract visualization of the process is shown below:
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="/assets/img/project_3/diagram4.png" title="original image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+</div>
+
+### Fitness pilot
+![Mutation graph](/assets/img/project_3/fitness.png)
+
+Here is the result of max fitness (y axis) versus number of generations (x axis) for 5 runs. Each run was made with a random seed (0, 1, ..., 4).
+
+### Codebase Description 
+The [solution.py](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py) file houses most of the inner workings of the mutation process. [Mutate()](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L37) accomodates slice and graft operations. [Create_Brain](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L80) carries over existing creature weights when using slicing and grafting to mutate. Creating the brain connections is relegated to [sendSynapses()](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L113). [makeFromEncoding()](solution.py#L129) uses a newly introduced dictionary encoding of a genome and creates a URDF file from it. [sliceEncoding()](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L150) and [deleteNames()](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L167) comprise the functionality of the slicing operation over an encoding, and [combineSlices()](https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L191) does the same for combining slices when grafting.
+
+For more details, all linked code is documented.
+
+### What happened?
+There doesn't seem to be a convergence in terms of body structure/length, but population fitness increases nonetheless.  Selection seem to be more focused on the neuronal level of the exsitings links responding "correctly" to sensory input. As seen in the below videos, creatures exhibit multiple different behaviours for moving in the negative y direction while keeping low in terms of the z axis. For example, in the brief 10 second visualization a creature can be seen crawling but another creature can be seen wiggling. The particular mutation paradigm here seems efficient for evolution.
+
+### Running
+Clone repository and run:
+
+```
+pip install -r requirements.txt
+```
+
+
+To run a randomly generated creature:
+```
+python main.py random
+```
+
+To run a creature from the saved body and brain data:
+```
+python main.py saved
+```
+
+### References
+[Education in Evolutionary Robotics](https://www.reddit.com/r/ludobots/) is used as the basis for the parallel hill climber and most of the codebase.
+
+[Evolving Virtual Creatures](https://www.karlsims.com/papers/siggraph94.pdf) is referenced for genotype graph inspiration.
+
+[Pyrosim](https://ccappelle.github.io/pyrosim/) is the foundational framework for body and brain simulation used by LudoBots.

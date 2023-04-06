@@ -1,80 +1,56 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
-img:
-importance: 4
-category: fun
+title: Dota Pro Replay Downloader
+description: Application that downloads 'pro-level' Dota 2 replays of the specified hero to the Dota 2 replays directory.
+img: assets/img/proj6.png
+importance: 3
+category: independent
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+The GitHub repository for this project is located [here](https://github.com/WHDaniels/dotaProReplayDownloader).
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Summary
+This program takes data in the form of match ID's of high MMR players from [dota2protracker.com](https://www.dota2protracker.com/) 
+for the hero the user has specified. The replays of the specific match ID's are then grabbed from  [opendota.com](https://www.opendota.com/) 
+and installed into the directory of the user’s choice (which should be the location of their Dota 2 replays folder). The user can select 
+the hero they want to download replays of and how many they want to download. After downloading is complete, a summary of what replays 
+have been downloaded is shown. Duplicate replays (replays that have been requested to download but are already in the replays directory) 
+are skipped and the user is prompted.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+This program makes only one visit to [dota2protracker.com](https://www.dota2protracker.com/) per download request, regardless 
+of the download amount, so the traffic to the website is just as minimal as if the one downloading was visiting the site and downloading 
+replays personally. The same can be said for visits to [opendota.com](https://www.opendota.com/). Dota Pro Replay Downloader is just a tool 
+that preforms the same actions one would take to download replays manually and should just be used as a time-saving replacement.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Use
+You will need Google Chrome installed to run this application.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+Once opened, you should specify:
+- What directory to download replays to, usually located in 
+*Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota\replays* 
+- The hero which you want to download replays of
+- The number of replays you wish to download
 
+(Once a directory is selected it stays memorized. So one will only need to specify a directory once unless they want to change it in the future.)
+Then simply press *Download* to install the replays
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+As a side note, one must still open the Dota 2 client and *download* the replays manually once they are in the replays directory.
+Unfortunately, match replays cannot be fully installed through means outside of the client.
 
+This does mean however, that space will not be taken up unnecessarily on your hard disk due to replays downloaded by the program, 
+as only the file name of the replay need be correct to have the client recognize it as a downloadable replay.
+In other words, until downloaded in-game, every replay downloaded through Dota Pro Replay Downloader is an empty file and takes up no space.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+That being said, Valve does set a time limit on replay acquisition: replays are only available for **8 days** after the game takes place.
+So if one wants to store a watchable replay, they should download it from the client before that time limit is reached.
 
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+## Installation
+For installation, simply download and run the [setup.exe](setup.exe) file located in this repository.
+To uninstall, find the download location and run the built-in uninstaller executable.
+
+## Issues and Bugs
+If you find a problem with this program or run into any crashes and/or bugs, please add an issue to let me know.
+
+With every new Chrome version this program will have to be updated and repackaged with the corresponding chromedriver executeable. If
+there are any crashes they are most likely due to the fact that I have not updated this yet. As stated before, if this is hindering your 
+ability to download replays just leave a issue open. (Alternatively one could restore Chrome to the previous version as a workaround.)

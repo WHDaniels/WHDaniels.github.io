@@ -10,10 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>project 5 | William  Daniels</title>
+    <title>English-Spanish NMT | William  Daniels</title>
     <meta name="author" content="William  Daniels">
-    <meta name="description" content="a project with a background image">
-    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+    <meta name="description" content="English to Spanish neural machine translator based on a recurrent neural network.">
+    <meta name="keywords" content="william, daniels, ml, ai, colorization">
 
 
     <!-- Bootstrap & MDB -->
@@ -71,10 +71,13 @@
                 <a class="nav-link" href="/">about</a>
               </li>
               
+
               <!-- Blog -->
+              <!-- 
               <li class="nav-item ">
                 <a class="nav-link" href="/blog/">blog</a>
               </li>
+              -->
 
               <!-- Other pages -->
               <li class="nav-item ">
@@ -88,17 +91,6 @@
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/cv/">cv</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/teaching/">teaching</a>
-              </li>
-              <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/publications/">publications</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/projects/">projects</a>
-                </div>
               </li>
 
               <!-- Toogle theme mode -->
@@ -128,169 +120,71 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">project 5</h1>
-            <p class="post-description">a project with a background image</p>
+            <h1 class="post-title">English-Spanish NMT</h1>
+            <p class="post-description">English to Spanish neural machine translator based on a recurrent neural network.</p>
           </header>
 
           <article>
-            <p>Every project has a beautiful feature showcase page.
-It’s easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.</p>
+            <p>The GitHub repository for this project is located <a href="https://github.com/WHDaniels/EnglishSpanishNMT" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-<p>To give your project a background in the portfolio page, just add the img tag to the front matter like so:</p>
+<h2 id="summary">Summary</h2>
+<p>This is a program made to translate Spanish phrases to their English counterpart through a trained model.
+I take a Spanish-English parallel corpus and preprocess this into data which I can feed into a multi-layer
+recurrent neural network model to get accurate predictions. PyQt5 is used as the user interface where input can be
+given to the model.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-layout: page
-title: project
-description: a project with a background image
-img: /assets/img/12.jpg
----
-</code></pre></div></div>
+<h2 id="dataset-and-preprocessing">Dataset and Preprocessing</h2>
+<p>The <a href="http://opus.nlpl.eu/Tatoeba.php" rel="external nofollow noopener" target="_blank">Tatoeba corpus</a> used, and it’s corresponding article is <a href="http://www.lrec-conf.org/proceedings/lrec2012/pdf/463_Paper.pdf" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+<p>Through parsing the entire Tatoeba dataset, a file is created that contains only the phrase pairings that contain 
+the top 20% most used words in the dataset. This allows for less noise in the data, although restricting the
+variety of words the model sees in training. The percentage can be changed to allow for more or less word inclusion.</p>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/1-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/1-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/1-1400.webp"></source>
-    
+<p>Phrases in this file are shuffled to enable the test and training sets to contain the same lengths of sentences on average. 
+The words in the phrases in this file are separated by language, then tokenized and put into integer format based upon their frequency through a Keras Tokenizer. Instead of a list of phrases, there are now two two-dimensional arrays of integers 
+which can be translated to their respective words at any time. These two arrays are then padded to the length of their
+longest phrase.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/1.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>The padded English array is our model input, and the padded Spanish array is the model output.</p>
 
-  </picture>
+<h2 id="model-training">Model Training</h2>
+<p>A Keras Sequential model with five layers (Embedding, two Bidirectional, RepeatVector, and a Dense layer with a 
+softmax activation) is used. This model is trained for 180 epochs with a batch size of 256, learning rate of .0001, 
+and takes a 20 percent validation split.</p>
 
-</figure>
+<h2 id="test-results">Test Results</h2>
+<p>The test set is taken from 20 percent of the total data and used to judge the accuracy of the model by comparing candidate
+sentences (translations by the model, or the models output given ‘y_train’) to reference phrases (the real translations, or ‘y_test’).</p>
 
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+<p>Accuracy is given in the form of a BLEU (bilingual evaluation understudy) score.</p>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/3-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/3-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/3-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/3.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
+<p><img src="/assets/img/project_5/bleuScoreReference.png" alt="Screenshot"></p>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    A rough reference for the BLEU score metric.
 </div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
-    
+<p>Since the BLEU score’s recommended use is as a corpus-wide metric, we add every candidate and reference sentence to a respective list
+and calculate the BLEU score from these two lists.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
+<p><img src="/assets/img/project_5/bleuScoreForModel.png" alt="Screenshot"></p>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    EnglishSpanishNMT's BLEU score evaluation on the test set.
 </div>
 
-<p>You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, <em>bled</em> for your project, and then… you reveal its glory in the next row of images.</p>
+<p>The model gives an outstanding score of above 60, which translates (obligatory pun) to a model that can preform better than 
+human translators on average. This is misleading however, as this score is obtained on a test set that is in turn obtained from a
+dataset which contents are vetted based on whether individual phrases contain only high frequency words. I.e. this 
+score is only applicable as a valid metric for performance given the words used are the words above the frequency threshold
+in the original dataset.</p>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        <figure>
+<p>Fortunately, due to the Pareto principle, the majority of common words should be included above this threshold, so the
+model should have a high accuracy rate on simple sentences. But as the addition of more obscure words rises, the
+predicted accuracy of this model plummets. A greater data gathering and preprocessing effort would have to be
+undertaken to solve this problem, which is out of the scope of this project’s intention.</p>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/6-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/6-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/6-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/6.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/11-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/11-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/11-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/11.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-<p>The code is simple.
-Just wrap your images with <code class="language-plaintext highlighter-rouge">&lt;div class="col-sm"&gt;</code> and place them inside <code class="language-plaintext highlighter-rouge">&lt;div class="row"&gt;</code> (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/" rel="external nofollow noopener" target="_blank">Bootstrap Grid</a> system).
-To make images responsive, add <code class="language-plaintext highlighter-rouge">img-fluid</code> class to each; for rounded corners and shadows use <code class="language-plaintext highlighter-rouge">rounded</code> and <code class="language-plaintext highlighter-rouge">z-depth-1</code> classes.
-Here’s the code for the last row of images above:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-sm-center"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-
+<h2 id="user-interface">User Interface</h2>
+<p>Using the PyQt5 library, a MainWindow class holds two text boxes which takes English input and outputs the Spanish
+prediction of the model.</p>
 
           </article>
 
@@ -301,7 +195,7 @@ Here’s the code for the last row of images above:</p>
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 
       </div>
     </footer>

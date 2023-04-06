@@ -3,18 +3,17 @@
 
   <!-- Head -->
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="3; url=/">    <!-- Metadata, OpenGraph and Schema.org -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
     
 
     <!-- Standard metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>project 3 | William  Daniels</title>
+    <title>Artifical Life Exploration | William  Daniels</title>
     <meta name="author" content="William  Daniels">
-    <meta name="description" content="a project that redirects to another website">
-    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+    <meta name="description" content="Training creatures to evolve their brains and bodies towards a fitness goal.">
+    <meta name="keywords" content="william, daniels, ml, ai, colorization">
 
 
     <!-- Bootstrap & MDB -->
@@ -72,10 +71,13 @@
                 <a class="nav-link" href="/">about</a>
               </li>
               
+
               <!-- Blog -->
+              <!-- 
               <li class="nav-item ">
                 <a class="nav-link" href="/blog/">blog</a>
               </li>
+              -->
 
               <!-- Other pages -->
               <li class="nav-item ">
@@ -89,17 +91,6 @@
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/cv/">cv</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/teaching/">teaching</a>
-              </li>
-              <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/publications/">publications</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/projects/">projects</a>
-                </div>
               </li>
 
               <!-- Toogle theme mode -->
@@ -129,24 +120,33 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">project 3</h1>
-            <p class="post-description">a project that redirects to another website</p>
+            <h1 class="post-title">Artifical Life Exploration</h1>
+            <p class="post-description">Training creatures to evolve their brains and bodies towards a fitness goal.</p>
           </header>
 
           <article>
-            <p>Every project has a beautiful feature showcase page.
-It’s easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.</p>
+            <p>The GitHub repository for this project is located <a href="https://github.com/WHDaniels/Artifical-Life-Exploration" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-<p>To give your project a background in the portfolio page, just add the img tag to the front matter like so:</p>
+<h3 id="short-teaser">Short Teaser</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ly3jJqFNsN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<p><br></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-layout: page
-title: project
-description: a project with a background image
-img: /assets/img/12.jpg
----
+<h3 id="what-is-this">What is this?</h3>
+<p>This project is centered around evolving virtual creatures made up of simulated blocks and neurons. We start by spawning unevolved creatures of a certain random configuration, then there creatures “learn” to complete a specified task automatically over time! Throughout this short blog we will walk through this evolution process and how we implement it.</p>
+
+<p>The creatures in this project are evolved by piecing together “main body” links. Mutations can be: slicing mutations that cut the genome at some point, combination mutations that graft two sliced creatures together, and standard weight mutations that change weights in the creatures brain. A diverse set of ancestors are created, and over time these configurations are evolved by the above mentioned operations.</p>
+
+<p>This setup is used as I wanted to enforce a catepillar-like evolution progression. The fitness function used minimizes</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>y+h
 </code></pre></div></div>
+<p>where y is the final y coordinate of the creature and h is the maximum height the creature reached during its life.</p>
+
+<h3 id="starting-genotypes-and-mutations">Starting Genotypes and Mutations</h3>
+<p><img src="/assets/img/project_3/diagram1.png" alt="Genotype graph"></p>
+
+<p>Ancestor (first parent) encodings are generated as shown above, then further encodings are evolved.</p>
+
+<p>The below figure showcases the two of the three mutation possiblities:</p>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -154,49 +154,13 @@ img: /assets/img/12.jpg
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/1-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/1-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/1-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/project_3/diagram2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/project_3/diagram2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/project_3/diagram2-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/1.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/3-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/3-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/3-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/3.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/project_3/diagram2.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="original image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -205,21 +169,36 @@ img: /assets/img/12.jpg
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
 </div>
+
+<p>Below is an example of how we encode information into our creatures. This is the genetic information that is transfered and mutated over time:</p>
+
+<p><img src="/assets/img/project_3/diagram5.png" alt="Genetic information graph"></p>
+
+<h3 id="creature-brain-structure">Creature brain structure</h3>
+<p>All creature brains are fully connected. During slicing synapses are removed from removed links/joints, and during combining synapses are retained. Sometimes combining errors (mutations) can occur that prevent weights from being carried over, resulting in random weights.</p>
+
+<p>A visualization of a fully connected brain given a random 4-link creature morphology is shown below:</p>
+
+<p><img src="/assets/img/project_3/diagram3.png" alt="Brain graph"></p>
+
+<h3 id="the-evolution-paradigm">The evolution paradigm</h3>
+
+<p>A parallel hill climber is used to evolve creatures over time. An abstract visualization of the process is shown below:</p>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/project_3/diagram4-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/project_3/diagram4-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/project_3/diagram4-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/project_3/diagram4.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="original image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -228,70 +207,41 @@ img: /assets/img/12.jpg
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
 </div>
 
-<p>You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, <em>bled</em> for your project, and then… you reveal its glory in the next row of images.</p>
+<h3 id="fitness-pilot">Fitness pilot</h3>
+<p><img src="/assets/img/project_3/fitness.png" alt="Mutation graph"></p>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        <figure>
+<p>Here is the result of max fitness (y axis) versus number of generations (x axis) for 5 runs. Each run was made with a random seed (0, 1, …, 4).</p>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/6-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/6-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/6-1400.webp"></source>
-    
+<h3 id="codebase-description">Codebase Description</h3>
+<p>The <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py" rel="external nofollow noopener" target="_blank">solution.py</a> file houses most of the inner workings of the mutation process. <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L37" rel="external nofollow noopener" target="_blank">Mutate()</a> accomodates slice and graft operations. <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L80" rel="external nofollow noopener" target="_blank">Create_Brain</a> carries over existing creature weights when using slicing and grafting to mutate. Creating the brain connections is relegated to <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L113" rel="external nofollow noopener" target="_blank">sendSynapses()</a>. <a href="solution.py#L129">makeFromEncoding()</a> uses a newly introduced dictionary encoding of a genome and creates a URDF file from it. <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L150" rel="external nofollow noopener" target="_blank">sliceEncoding()</a> and <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L167" rel="external nofollow noopener" target="_blank">deleteNames()</a> comprise the functionality of the slicing operation over an encoding, and <a href="https://github.com/WHDaniels/Artifical-Life-Exploration/blob/main/solution.py#L191" rel="external nofollow noopener" target="_blank">combineSlices()</a> does the same for combining slices when grafting.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/6.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>For more details, all linked code is documented.</p>
 
-  </picture>
+<h3 id="what-happened">What happened?</h3>
+<p>There doesn’t seem to be a convergence in terms of body structure/length, but population fitness increases nonetheless.  Selection seem to be more focused on the neuronal level of the exsitings links responding “correctly” to sensory input. As seen in the below videos, creatures exhibit multiple different behaviours for moving in the negative y direction while keeping low in terms of the z axis. For example, in the brief 10 second visualization a creature can be seen crawling but another creature can be seen wiggling. The particular mutation paradigm here seems efficient for evolution.</p>
 
-</figure>
+<h3 id="running">Running</h3>
+<p>Clone repository and run:</p>
 
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/11-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/11-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/11-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/11.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-<p>The code is simple.
-Just wrap your images with <code class="language-plaintext highlighter-rouge">&lt;div class="col-sm"&gt;</code> and place them inside <code class="language-plaintext highlighter-rouge">&lt;div class="row"&gt;</code> (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/" rel="external nofollow noopener" target="_blank">Bootstrap Grid</a> system).
-To make images responsive, add <code class="language-plaintext highlighter-rouge">img-fluid</code> class to each; for rounded corners and shadows use <code class="language-plaintext highlighter-rouge">rounded</code> and <code class="language-plaintext highlighter-rouge">z-depth-1</code> classes.
-Here’s the code for the last row of images above:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-sm-center"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install -r requirements.txt
 </code></pre></div></div>
 
+<p>To run a randomly generated creature:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python main.py random
+</code></pre></div></div>
+
+<p>To run a creature from the saved body and brain data:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python main.py saved
+</code></pre></div></div>
+
+<h3 id="references">References</h3>
+<p><a href="https://www.reddit.com/r/ludobots/" rel="external nofollow noopener" target="_blank">Education in Evolutionary Robotics</a> is used as the basis for the parallel hill climber and most of the codebase.</p>
+
+<p><a href="https://www.karlsims.com/papers/siggraph94.pdf" rel="external nofollow noopener" target="_blank">Evolving Virtual Creatures</a> is referenced for genotype graph inspiration.</p>
+
+<p><a href="https://ccappelle.github.io/pyrosim/" rel="external nofollow noopener" target="_blank">Pyrosim</a> is the foundational framework for body and brain simulation used by LudoBots.</p>
 
           </article>
 
@@ -302,7 +252,7 @@ Here’s the code for the last row of images above:</p>
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 
       </div>
     </footer>

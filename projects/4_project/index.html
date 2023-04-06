@@ -10,10 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>project 4 | William  Daniels</title>
+    <title>BankBot | William  Daniels</title>
     <meta name="author" content="William  Daniels">
-    <meta name="description" content="another without an image">
-    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+    <meta name="description" content="An intent-based classifier chatbot that helps bank customers with simple information provision and tasks.">
+    <meta name="keywords" content="william, daniels, ml, ai, colorization">
 
 
     <!-- Bootstrap & MDB -->
@@ -71,10 +71,13 @@
                 <a class="nav-link" href="/">about</a>
               </li>
               
+
               <!-- Blog -->
+              <!-- 
               <li class="nav-item ">
                 <a class="nav-link" href="/blog/">blog</a>
               </li>
+              -->
 
               <!-- Other pages -->
               <li class="nav-item ">
@@ -88,17 +91,6 @@
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/cv/">cv</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/teaching/">teaching</a>
-              </li>
-              <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/publications/">publications</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/projects/">projects</a>
-                </div>
               </li>
 
               <!-- Toogle theme mode -->
@@ -128,24 +120,203 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">project 4</h1>
-            <p class="post-description">another without an image</p>
+            <h1 class="post-title">BankBot</h1>
+            <p class="post-description">An intent-based classifier chatbot that helps bank customers with simple information provision and tasks.</p>
           </header>
 
           <article>
-            <p>Every project has a beautiful feature showcase page.
-It’s easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.</p>
+            <p>The GitHub repository for this project is located <a href="https://github.com/WHDaniels/BankBot4444" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-<p>To give your project a background in the portfolio page, just add the img tag to the front matter like so:</p>
+<h3 id="group-members">Group Members</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-layout: page
-title: project
-description: a project with a background image
-img: /assets/img/12.jpg
----
-</code></pre></div></div>
+<p><b>Topic Brainstorming &amp; Leadership:</b></p>
+
+<p>William Daniels,
+Andrew Rodrigue,
+Caleb Walls,
+Ben Alterman,
+Emilia Garcia-Saravia</p>
+
+<p><b>Programming, Implementation, and Experimentation:</b></p>
+
+<p>William Daniels</p>
+
+<p><b>Data Collection and Production:</b></p>
+
+<p>Ben Alterman,
+Emilia Garcia-Saravia,
+Kha Le,
+Hieu Mai,
+Jorie Noll,
+Marcellina Kazigati,
+Ana Nuno,
+Adwaita Ramachandran,
+Andrew Rodrigue,
+Caleb Walls</p>
+
+<p><b>Project Report:</b></p>
+
+<p>Emilia Garcia-Saravia,
+Ana Nuno,
+Marcellina Kazigati,
+William Daniels</p>
+
+<p><b>Presentation:</b></p>
+
+<p>Ben Alterman,
+Emilia Garcia-Saravia,
+Kha Le,
+Hieu Mai,
+Jorie Noll,
+Marcellina Kazigati,
+William Daniels,
+Ana Nuno,
+Adwaita Ramachandran,
+Andrew Rodrigue,
+Caleb Walls</p>
+
+<h3 id="abstract">Abstract</h3>
+<p>The purpose of this project was to develop a computer program that implements an
+intelligent agent that will resolve a bank’s online customers’ common issues. The baking
+system’s customers could have issues that range from activating a new card to editing user
+information. To solve this problem, we opted to create a chatbot that is intent based. This is
+achieved through the development of a deep neural network model to fit training data to be later
+used to predict the correct intent when a customer inputs their own query. To interface with the
+bot a GUI was implemented. The result was a chat bot, BankBot4444, with a series of unique
+responses based on intent. The model will go through two experiments to increase its
+performance and accuracy. One of the experiments will be testing the model using various
+hyperparameters. Another experiment that will be formed is text normalization and elimination
+of noise in the data through the elimination of stopwords.</p>
+
+<h3 id="motivation">Motivation</h3>
+<p>To develop a computer program that implements an intelligent agent that will resolve the
+problem below. We decided to implement a chatbot using a deep neural network to handle
+common questions to allow human customer support agents to focus on more difficult tasks.</p>
+
+<h3 id="problem">Problem</h3>
+<p>A bank’s online customers are in need of assistance with questions and problems. The banking
+company would like to have a chatbot that would provide unique responses each time a new user
+interacts with it.</p>
+
+<h3 id="idea-and-concepts">Idea and Concepts</h3>
+<ul>
+  <li>Bag of words</li>
+  <li>Text Normalization</li>
+  <li>Neural Networks</li>
+  <li>Text Formatting and Tokenization</li>
+  <li>Intent-based structure</li>
+</ul>
+
+<h2 id="software-system-design-and-implementation">Software System Design and Implementation</h2>
+
+<h3 id="overview">Overview</h3>
+<p>Our goal in this project was to get a deep neural network model to fit the training data, which is
+example queries associated with the intent of the query, and use this model to predict the correct
+intent when a customer inputs their own query.</p>
+
+<p>We transform our training data into JSON format where the tag specifies an intent, the pattern
+represents the training query, and the response represents a few output selections of which the
+program could respond to the user with. (Tags are synonymous with intents and may be used
+interchangeably with each other for the purposes of this report.)</p>
+
+<p>To interface with our bot, we implemented a GUI in the form of a PyQt5 MainWindow class.</p>
+
+<h3 id="data-gathering">Data Gathering</h3>
+<p>For our data we used this intent classification dataset centered around banking queries:</p>
+
+<p><strong>Source:</strong> <a href="https://arxiv.org/abs/2003.04807" rel="external nofollow noopener" target="_blank"><em>Efficient Intent Detection with Dual Sentence Encoders</em></a></p>
+
+<p><img src="/assets/img/project_4/Picture1.png" alt="Screenshot"></p>
+<div class="caption">
+    Example of the data format in the dataset we used.
+</div>
+
+<p>We then transformed this dataset into JSON format and manually inputted the respective responses 
+for each intent classification (average of 5 responses for each intent = 5 * 91 = 455 responses)</p>
+
+<p><img src="/assets/img/project_4/Picture2.png" alt="Screenshot"></p>
+<div class="caption">
+    Example of the first tag, its patterns, and its responses in JSON format (in comparison to other intents, the amount of data this one holds is very small, as patterns in other intents can be hundreds of lines long)
+</div>
+
+<h3 id="preprocessing-data">Preprocessing Data</h3>
+<p>First, we take data from the JSON file and create a series of lists to store the various tags,
+patterns, and responses.</p>
+
+<p>We then use a Keras Tokenizer to fit every word present in the pattern to a word index (a
+dictionary of words ranked by frequency). In this way, every phrase can be transformed into an
+array of numbers. Tags are tokenized as well.</p>
+
+<p>The ‘makeInput’ function takes the tokenizer object and a list of all the
+patterns to create a list of lists where each list is a bag of words representation of each pattern as
+it relates to the word index (if a word has a key of x in the word index, whether it is found in the
+pattern is represented by either a 0 (not present) or a 1 (present) in the x-1 index of the list).</p>
+
+<p>The ‘makeOutput’ function has the exact same purpose that the
+‘makeInput’ function has but for tags. So the intents that the patterns will be mapped to have
+their own bag of words representation, although in this case, one intent doesn’t appear more than
+another, so the order they are indexed into this bag is arbitrary.</p>
+
+<p>We transform both the inputList and outputList returned by both make functions and transform
+them into NumPy arrays to be compatible with our model.</p>
+
+<h3 id="creating-and-training-the-model">Creating and Training the Model</h3>
+<p>Using a tflearn DNN (deep neural network), we construct a model with 5 layers:</p>
+<ul>
+  <li>Input layer with a shape equivalent to the length of our bag of words</li>
+  <li>Dense layer where the number of neurons is the variable ‘n’</li>
+  <li>Dense layer where the number of neurons is the variable ‘n’</li>
+  <li>Dense layer where the number of neurons is the number of possible tags, with a
+softmax activation</li>
+  <li>Regression layer</li>
+</ul>
+
+<p>We fit our model with the input and output array and set it to train for 10 epochs (10 is an
+arbitrary number used for epochs, we will focus on choosing a better value later).</p>
+
+<h3 id="predict-from-trained-model">Predict from Trained Model</h3>
+<p>Our ‘interact’ function predicts an intent and selects a random response based on the intent. This
+function is a part of the PyQt5 GUI we used as an interface for the bot, more on this later.</p>
+
+<p>More specifically, the ‘interact’ function takes user input, transforms that input through the use
+of ‘makeInput’ into a NumPy array, uses the model to predict the most likely label from that
+NumPy array, and randomly selects a response from a list of responses that relate to that intent.</p>
+
+<h3 id="creating-a-user-interface">Creating a User Interface</h3>
+<p>A separate GUI file, named ‘gui.py’, is used as the PyQt5 class that is subclassed inside of the
+file that runs our chatbot.</p>
+
+<p>When the GUI file is subclassed, it allows us to add PyQt5 user interface functionality, such as
+user input that can be converted and prediction response output from our bot that can be
+displayed. (As there is no send button implemented, user input is
+received by the user with the return button. This is not an oversight, but a design choice.)</p>
+
+<p>For styling, we use a CSS stylesheet called qdarkstyle. Which results in the dark mode styling you
+see in the interface.</p>
+
+<div class="row">
+    <div class="col-sm mt-2 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/project_4/Picture3-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/project_4/Picture3-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/project_4/Picture3-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/project_4/Picture3.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="original image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    The user interface for our chatbot.
+</div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -153,49 +324,13 @@ img: /assets/img/12.jpg
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/1-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/1-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/1-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/project_4/Picture4-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/project_4/Picture4-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/project_4/Picture4-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/1.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/3-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/3-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/3-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/3.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/project_4/Picture4.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="original image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -204,21 +339,22 @@ img: /assets/img/12.jpg
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Example of user interaction with the bot.
 </div>
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/project_4/Picture5-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/project_4/Picture5-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/project_4/Picture5-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/project_4/Picture5.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="original image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -227,69 +363,144 @@ img: /assets/img/12.jpg
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Example of the bot randomizing its responses.
 </div>
 
-<p>You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, <em>bled</em> for your project, and then… you reveal its glory in the next row of images.</p>
+<h2 id="experiments-performed-and-results">Experiments Performed and Results</h2>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        <figure>
+<h3 id="choosing-hyperparameters">Choosing Hyperparameters</h3>
+<p>For testing purposes, we set arbitrary hyperparameters for the neural network to focus on the
+actual implementation. These hyperparameters consisted of:</p>
+<ul>
+  <li>Epochs = 10</li>
+  <li>Number of neurons per dense layer (n) = the average of the input and output sizes = (input size + output size)/2</li>
+</ul>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/6-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/6-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/6-1400.webp"></source>
-    
+<p>This resulted in performance sufficient enough to test our bot, but the performance was subpar
+nonetheless with an accuracy of around 86 to 87 percent reliably.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/6.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<h3 id="choosing-hyperparameters-results">Choosing Hyperparameters (Results)</h3>
+<p>By running tests on various hyperparameters, we concluded that lowering the number of neurons
+per layer and increasing the number of epochs granted the highest model accuracy.</p>
 
-  </picture>
+<p>We also needed to avoid overfitting the model, so we needed to find the best spot where the
+accuracy to time trained ratio was maximal.</p>
 
-</figure>
-
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/11-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/11-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/11-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/11.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
+<p><img src="/assets/img/project_4/Picture6.png" alt="Screenshot"></p>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Results of hyperparameter choices.<br>
+    avg = (input size + output size)/2<br>
+    avg * 1/6 = (input size + output size)/12<br>
+    avg * 1/8 = (input size + output size)/16<br>
 </div>
 
-<p>The code is simple.
-Just wrap your images with <code class="language-plaintext highlighter-rouge">&lt;div class="col-sm"&gt;</code> and place them inside <code class="language-plaintext highlighter-rouge">&lt;div class="row"&gt;</code> (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/" rel="external nofollow noopener" target="_blank">Bootstrap Grid</a> system).
-To make images responsive, add <code class="language-plaintext highlighter-rouge">img-fluid</code> class to each; for rounded corners and shadows use <code class="language-plaintext highlighter-rouge">rounded</code> and <code class="language-plaintext highlighter-rouge">z-depth-1</code> classes.
-Here’s the code for the last row of images above:</p>
+<p>Accuracy peaks (with least chance of overfitting) with a combination of:</p>
+<ul>
+  <li>Epochs = 50</li>
+  <li>Number of neurons per dense layer (n) = avg * 1/6
+(which is equivalent to 343 neurons per dense layer at final testing)</li>
+</ul>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-sm-center"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
+<h3 id="morphological-word-analysis-textword-normalization">Morphological Word Analysis: Text/Word Normalization</h3>
+<p>We can increase the accuracy of our model even further by considering what word data we feed
+to our model and morphing it to our advantage.</p>
+
+<p>According to Wikipedia, morphology “is the study of words, how they are formed, and their
+relationship to other words in the same language. It analyzes the structure of words and parts of
+words, such as stems, root words, prefixes, and suffixes.”</p>
+
+<p>Techniques like stemming, the reduction of a word to a root form, and lemmatization, the
+reduction of a word to a root word, we theorized, could help us eliminate noise in our word data
+and give our model even greater accuracy.</p>
+
+<p><img src="/assets/img/project_4/Picture7.png" alt="Screenshot"></p>
+<div class="caption">
+    A table that demonstrates word stemming.
+</div>
+
+<p><img src="/assets/img/project_4/Picture8.png" alt="Screenshot"></p>
+<div class="caption">
+    A table that demonstrates word lemmatization.
+</div>
+
+<p>In addition to text normalization, we can eliminate other noise from our data in the form of
+removing stopwords.</p>
+
+<p>Stopwords are the most common words used in everyday language and usually provide no useful
+information to our model, decreasing the accuracy.</p>
+
+<p><img src="/assets/img/project_4/Picture9.png" alt="Screenshot"></p>
+<div class="caption">
+    Example of stopwords used in a data mining library in the R language.
+</div>
+
+<h3 id="morphological-word-analysis-textword-normalization-results">Morphological Word Analysis: Text/Word Normalization (Results)</h3>
+<p>We devised an experiment that counted the accuracy of the model (given the previously chosen
+parameters) when stemming, lemmatization, and neither were used with and without removing
+stopwords, resulting in 6 permutations of text augmentation.</p>
+
+<p><img src="/assets/img/project_4/Picture10.png" alt="Screenshot"></p>
+<div class="caption">
+    Results of text normalization experiments. (Decimals represent accuracy of model)
+</div>
+
+<p>As shown in the results, removing stopwords was very detrimental to the accuracy of our bot.
+This outcome should be somewhat anticipated for a chatbot, but since there were so many
+keywords for our chatbot model to pick up on we considered stopwords to be extra noise, which
+evidently is not the case.</p>
+
+<p>Lemmatization seemed to not contribute much to the accuracy of the model, even decreasing the
+accuracy later. It’s hard to deduce the reason for this, but one very plausible assumption is that in
+this dataset there are a few words that, when reduced to their root word through lemmatization,
+turn out to be the same word, even though they have slightly different meanings.</p>
+
+<p>Stemming, however, had a massive increase in accuracy, increasing it by a net of 3 to 7 percent
+depending on whether stopwords were kept. This is probably due to having all the advantages
+that text normalization gives (reducing words to their meanings without noise) without the
+disadvantages that lemmatization brought to our specific problem.</p>
+
+<p>The most powerful combination for our model was stemming all words, including stopwords.
+The result was a model accuracy of 98.55%, an improvement of around 3.5% over the last
+experiment’s resulting model accuracy.</p>
+
+<h3 id="software-tools-and-packages">Software Tools and Packages</h3>
+<p><b>NLTK:</b> A platform for building Python programs to work with human language data.</p>
+
+<p><b>Tensorflow:</b> A free and open-source software library for machine learning. It can be used
+across a range of tasks but has a particular focus on training and inference of deep
+neural networks.</p>
+
+<p><b>Tflearn:</b> Designed to provide a higher-level API to TensorFlow to facilitate and speed-up
+experimentations.</p>
+
+<p><b>Keras:</b> An open-source library that provides a Python interface for artificial neural
+networks. It acts as an interface for Tensorflow.</p>
+
+<p><b>PyQt5:</b> Python binding of the cross-platform GUI toolkit Qt implemented as a Python
+plug-in.</p>
+
+<p><b>Numpy:</b> Python library for manipulating arrays and numerical computations.</p>
+
+<p><b>Pandas:</b> Python library for the creation and manipulation of data frames as well as
+graphing.</p>
+
+<p><b>Qdarkstyle:</b> A dark stylesheet for Python and Qt applications</p>
+
+<h3 id="summary">Summary</h3>
+<p>The goal of this project was to create an intelligent agent that would help solve a bank’s
+customers’ problems. The solution was to create an intent-based chatbot. We achieved this by
+using a deep neural network model to predict the correct intent when a customer inputs their own
+query. To increase the accuracy of our model two experiments were performed. By running tests
+on various hyperparameters, we concluded that lowering the number of neurons per layer and
+increasing the number of epochs granted the highest model accuracy. Additionally, text
+normalization and removal of stopwords were tested. We devised an experiment that counted the
+accuracy of the model (given the previously chosen parameters) when stemming, lemmatization,
+and neither were used with and without removing stopwords. The best combination of methods
+was stemming all words, including stopwords that resulted in an increase of accuracy of our
+model.</p>
+
+<h3 id="references">References</h3>
+<p><a href="https://arxiv.org/abs/2003.04807" rel="external nofollow noopener" target="_blank"><em>Efficient Intent Detection with Dual Sentence Encoders</em></a> by Inigo Casanueva, Tadas Temcinas, Daniela Gerz, Matthew Henderson, and Ivan Vulic.</p>
 
 
           </article>
@@ -301,7 +512,7 @@ Here’s the code for the last row of images above:</p>
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+        © Copyright 2023 William  Daniels. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 
       </div>
     </footer>

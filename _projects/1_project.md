@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Deep Line-Art Colorization with Adversarial Nets
+title: Deep Cartoon-Panel Colorization with Adversarial Nets
 description: Learning to generate full-color illustrations from sketch approximations.
 img: assets/img/proj1.png
 importance: 1

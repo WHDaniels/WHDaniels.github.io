@@ -3,7 +3,7 @@ layout: page
 title: Artifical Life Exploration
 description: Training creatures to evolve their brains and bodies towards a fitness goal.
 img: assets/img/proj3.png
-importance: 2
+importance: 3
 category: academic
 ---
 

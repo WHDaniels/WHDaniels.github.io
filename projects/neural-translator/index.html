@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>projects | William  Daniels</title>
+    <title>English-Spanish NMT | William  Daniels</title>
     <meta name="author" content="William  Daniels">
-    <meta name="description" content="A collection of both independent and group projects of mine.">
+    <meta name="description" content="English to Spanish neural machine translator based on a recurrent neural network.">
     <meta name="keywords" content="william, daniels, ml, ai, colorization">
 
 
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8E%93&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://whdaniels.github.io/projects/">
+    <link rel="canonical" href="https://whdaniels.github.io/projects/neural-translator/">
     
     <!-- Dark Mode -->
     
@@ -83,8 +83,8 @@
               <li class="nav-item ">
                 <a class="nav-link" href="/publications/">publications</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/projects/">projects<span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">projects</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/repositories/">repositories</a>
@@ -120,235 +120,71 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">projects</h1>
-            <p class="post-description">A collection of both independent and group projects of mine.</p>
+            <h1 class="post-title">English-Spanish NMT</h1>
+            <p class="post-description">English to Spanish neural machine translator based on a recurrent neural network.</p>
           </header>
 
           <article>
-            <!-- pages/projects.md -->
-<div class="projects">
-  <!-- Display categorized projects -->
-  <h2 class="category">independent</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/cartoon/">
-      <div class="card hoverable">
-<figure>
+            <p>The GitHub repository for this project is located <a href="https://github.com/WHDaniels/EnglishSpanishNMT" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-  <picture>
-    
+<h2 id="summary">Summary</h2>
+<p>This is a program made to translate Spanish phrases to their English counterpart through a trained model.
+I take a Spanish-English parallel corpus and preprocess this into data which I can feed into a multi-layer
+recurrent neural network model to get accurate predictions. PyQt5 is used as the user interface where input can be
+given to the model.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj1.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<h2 id="dataset-and-preprocessing">Dataset and Preprocessing</h2>
+<p>The <a href="http://opus.nlpl.eu/Tatoeba.php" rel="external nofollow noopener" target="_blank">Tatoeba corpus</a> used, and it’s corresponding article is <a href="http://www.lrec-conf.org/proceedings/lrec2012/pdf/463_Paper.pdf" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-  </picture>
+<p>Through parsing the entire Tatoeba dataset, a file is created that contains only the phrase pairings that contain 
+the top 20% most used words in the dataset. This allows for less noise in the data, although restricting the
+variety of words the model sees in training. The percentage can be changed to allow for more or less word inclusion.</p>
 
-</figure>
+<p>Phrases in this file are shuffled to enable the test and training sets to contain the same lengths of sentences on average. 
+The words in the phrases in this file are separated by language, then tokenized and put into integer format based upon their frequency through a Keras Tokenizer. Instead of a list of phrases, there are now two two-dimensional arrays of integers 
+which can be translated to their respective words at any time. These two arrays are then padded to the length of their
+longest phrase.</p>
 
-        <div class="card-body">
-          <h4 class="card-title">Deep Cartoon-Panel Colorization with Adversarial Nets</h4>
-          <p class="card-text">Learning to generate full-color illustrations from sketch approximations.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
+<p>The padded English array is our model input, and the padded Spanish array is the model output.</p>
+
+<h2 id="model-training">Model Training</h2>
+<p>A Keras Sequential model with five layers (Embedding, two Bidirectional, RepeatVector, and a Dense layer with a 
+softmax activation) is used. This model is trained for 180 epochs with a batch size of 256, learning rate of .0001, 
+and takes a 20 percent validation split.</p>
+
+<h2 id="test-results">Test Results</h2>
+<p>The test set is taken from 20 percent of the total data and used to judge the accuracy of the model by comparing candidate
+sentences (translations by the model, or the models output given ‘y_train’) to reference phrases (the real translations, or ‘y_test’).</p>
+
+<p>Accuracy is given in the form of a BLEU (bilingual evaluation understudy) score.</p>
+
+<p><img src="/assets/img/project_5/bleuScoreReference.png" alt="Screenshot"></p>
+<div class="caption">
+    A rough reference for the BLEU score metric.
 </div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/neural-translator/">
-      <div class="card hoverable">
-<figure>
 
-  <picture>
-    
+<p>Since the BLEU score’s recommended use is as a corpus-wide metric, we add every candidate and reference sentence to a respective list
+and calculate the BLEU score from these two lists.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj5.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">English-Spanish NMT</h4>
-          <p class="card-text">English to Spanish neural machine translator based on a recurrent neural network.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
+<p><img src="/assets/img/project_5/bleuScoreForModel.png" alt="Screenshot"></p>
+<div class="caption">
+    EnglishSpanishNMT's BLEU score evaluation on the test set.
 </div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/dotaproreplaydownloader/">
-      <div class="card hoverable">
-<figure>
 
-  <picture>
-    
+<p>The model gives an outstanding score of above 60, which translates (obligatory pun) to a model that can preform better than 
+human translators on average. This is misleading however, as this score is obtained on a test set that is in turn obtained from a
+dataset which contents are vetted based on whether individual phrases contain only high frequency words. I.e. this 
+score is only applicable as a valid metric for performance given the words used are the words above the frequency threshold
+in the original dataset.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj6.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>Fortunately, due to the Pareto principle, the majority of common words should be included above this threshold, so the
+model should have a high accuracy rate on simple sentences. But as the addition of more obscure words rises, the
+predicted accuracy of this model plummets. A greater data gathering and preprocessing effort would have to be
+undertaken to solve this problem, which is out of the scope of this project’s intention.</p>
 
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Dota Pro Replay Downloader</h4>
-          <p class="card-text">Application that downloads 'pro-level' Dota 2 replays of the specified hero to the Dota 2 replays directory.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-  <h2 class="category">academic</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/thesis/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj7.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Multi-Stage Automatic Line-Art Colorization with Style and Color Priors</h4>
-          <p class="card-text">Master's Thesis</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/data-centric-medical/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj2.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Investigations on Data-Centric Machine Learning for Medical Images and Signals</h4>
-          <p class="card-text">How do we increase cancer classification performance by only changing our data?</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/turtle-evolution/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj8.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Investigating Simple Adaptive Agent Cognition through Neuro-Evolution and Competitive Environments</h4>
-          <p class="card-text">Modeling population-level evolution with competitive agents (turtles!).</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/artifical-life/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj3.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Artifical Life Exploration</h4>
-          <p class="card-text">Training creatures to evolve their brains and bodies towards a fitness goal.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-  <h2 class="category">group</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/bankbot/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj4.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">BankBot</h4>
-          <p class="card-text">An intent-based classifier chatbot that helps bank customers with simple information provision and tasks.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-</div>
+<h2 id="user-interface">User Interface</h2>
+<p>Using the PyQt5 library, a MainWindow class holds two text boxes which takes English input and outputs the Spanish
+prediction of the model.</p>
 
           </article>
 

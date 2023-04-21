@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>projects | William  Daniels</title>
+    <title>Dota Pro Replay Downloader | William  Daniels</title>
     <meta name="author" content="William  Daniels">
-    <meta name="description" content="A collection of both independent and group projects of mine.">
+    <meta name="description" content="Application that downloads 'pro-level' Dota 2 replays of the specified hero to the Dota 2 replays directory.">
     <meta name="keywords" content="william, daniels, ml, ai, colorization">
 
 
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8E%93&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://whdaniels.github.io/projects/">
+    <link rel="canonical" href="https://whdaniels.github.io/projects/dotaproreplaydownloader/">
     
     <!-- Dark Mode -->
     
@@ -83,8 +83,8 @@
               <li class="nav-item ">
                 <a class="nav-link" href="/publications/">publications</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/projects/">projects<span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">projects</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/repositories/">repositories</a>
@@ -120,235 +120,61 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">projects</h1>
-            <p class="post-description">A collection of both independent and group projects of mine.</p>
+            <h1 class="post-title">Dota Pro Replay Downloader</h1>
+            <p class="post-description">Application that downloads 'pro-level' Dota 2 replays of the specified hero to the Dota 2 replays directory.</p>
           </header>
 
           <article>
-            <!-- pages/projects.md -->
-<div class="projects">
-  <!-- Display categorized projects -->
-  <h2 class="category">independent</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/cartoon/">
-      <div class="card hoverable">
-<figure>
+            <p>The GitHub repository for this project is located <a href="https://github.com/WHDaniels/dotaProReplayDownloader" rel="external nofollow noopener" target="_blank">here</a>.</p>
 
-  <picture>
-    
+<h2 id="summary">Summary</h2>
+<p>This program takes data in the form of match ID’s of high MMR players from <a href="https://www.dota2protracker.com/" rel="external nofollow noopener" target="_blank">dota2protracker.com</a> 
+for the hero the user has specified. The replays of the specific match ID’s are then grabbed from  <a href="https://www.opendota.com/" rel="external nofollow noopener" target="_blank">opendota.com</a> 
+and installed into the directory of the user’s choice (which should be the location of their Dota 2 replays folder). The user can select 
+the hero they want to download replays of and how many they want to download. After downloading is complete, a summary of what replays 
+have been downloaded is shown. Duplicate replays (replays that have been requested to download but are already in the replays directory) 
+are skipped and the user is prompted.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj1.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>This program makes only one visit to <a href="https://www.dota2protracker.com/" rel="external nofollow noopener" target="_blank">dota2protracker.com</a> per download request, regardless 
+of the download amount, so the traffic to the website is just as minimal as if the one downloading was visiting the site and downloading 
+replays personally. The same can be said for visits to <a href="https://www.opendota.com/" rel="external nofollow noopener" target="_blank">opendota.com</a>. Dota Pro Replay Downloader is just a tool 
+that preforms the same actions one would take to download replays manually and should just be used as a time-saving replacement.</p>
 
-  </picture>
+<h2 id="use">Use</h2>
+<p>You will need Google Chrome installed to run this application.</p>
 
-</figure>
+<p>Once opened, you should specify:</p>
+<ul>
+  <li>What directory to download replays to, usually located in 
+<em>Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota\replays</em>
+</li>
+  <li>The hero which you want to download replays of</li>
+  <li>The number of replays you wish to download</li>
+</ul>
 
-        <div class="card-body">
-          <h4 class="card-title">Deep Cartoon-Panel Colorization with Adversarial Nets</h4>
-          <p class="card-text">Learning to generate full-color illustrations from sketch approximations.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/neural-translator/">
-      <div class="card hoverable">
-<figure>
+<p>(Once a directory is selected it stays memorized. So one will only need to specify a directory once unless they want to change it in the future.)
+Then simply press <em>Download</em> to install the replays</p>
 
-  <picture>
-    
+<p>As a side note, one must still open the Dota 2 client and <em>download</em> the replays manually once they are in the replays directory.
+Unfortunately, match replays cannot be fully installed through means outside of the client.</p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj5.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>This does mean however, that space will not be taken up unnecessarily on your hard disk due to replays downloaded by the program, 
+as only the file name of the replay need be correct to have the client recognize it as a downloadable replay.
+In other words, until downloaded in-game, every replay downloaded through Dota Pro Replay Downloader is an empty file and takes up no space.</p>
 
-  </picture>
+<p>That being said, Valve does set a time limit on replay acquisition: replays are only available for <strong>8 days</strong> after the game takes place.
+So if one wants to store a watchable replay, they should download it from the client before that time limit is reached.</p>
 
-</figure>
+<h2 id="installation">Installation</h2>
+<p>For installation, simply download and run the <a href="setup.exe">setup.exe</a> file located in this repository.
+To uninstall, find the download location and run the built-in uninstaller executable.</p>
 
-        <div class="card-body">
-          <h4 class="card-title">English-Spanish NMT</h4>
-          <p class="card-text">English to Spanish neural machine translator based on a recurrent neural network.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/dotaproreplaydownloader/">
-      <div class="card hoverable">
-<figure>
+<h2 id="issues-and-bugs">Issues and Bugs</h2>
+<p>If you find a problem with this program or run into any crashes and/or bugs, please add an issue to let me know.</p>
 
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj6.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Dota Pro Replay Downloader</h4>
-          <p class="card-text">Application that downloads 'pro-level' Dota 2 replays of the specified hero to the Dota 2 replays directory.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-  <h2 class="category">academic</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/thesis/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj7.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Multi-Stage Automatic Line-Art Colorization with Style and Color Priors</h4>
-          <p class="card-text">Master's Thesis</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/data-centric-medical/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj2.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Investigations on Data-Centric Machine Learning for Medical Images and Signals</h4>
-          <p class="card-text">How do we increase cancer classification performance by only changing our data?</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/turtle-evolution/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj8.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Investigating Simple Adaptive Agent Cognition through Neuro-Evolution and Competitive Environments</h4>
-          <p class="card-text">Modeling population-level evolution with competitive agents (turtles!).</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/artifical-life/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj3.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">Artifical Life Exploration</h4>
-          <p class="card-text">Training creatures to evolve their brains and bodies towards a fitness goal.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-  <h2 class="category">group</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/bankbot/">
-      <div class="card hoverable">
-<figure>
-
-  <picture>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/proj4.png" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-        <div class="card-body">
-          <h4 class="card-title">BankBot</h4>
-          <p class="card-text">An intent-based classifier chatbot that helps bank customers with simple information provision and tasks.</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
-</div>
-  </div>
-</div>
+<p>With every new Chrome version this program will have to be updated and repackaged with the corresponding chromedriver executeable. If
+there are any crashes they are most likely due to the fact that I have not updated this yet. As stated before, if this is hindering your 
+ability to download replays just leave a issue open. (Alternatively one could restore Chrome to the previous version as a workaround.)</p>
 
           </article>
 

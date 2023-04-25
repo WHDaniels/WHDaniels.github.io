@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Multi-Stage Automatic Line-Art Colorization with Style and Color Priors
-description: Master's Thesis
+description: Master's Thesis | Learning a mapping from semantic line information to diverse colorings.
 img: assets/img/proj7.png
 importance: 1
 category: academic

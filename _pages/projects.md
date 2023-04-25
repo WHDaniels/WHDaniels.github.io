@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A collection of both independent and group projects of mine.
+description: A collection of academic, independent, and group projects of mine.
 nav: true
 nav_order: 2
-display_categories: [independent, academic, group]
+display_categories: [academic, independent, group]
 horizontal: false
 ---
 

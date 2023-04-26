@@ -11,6 +11,6 @@ category: academic
     src='/assets/pdf/Investigations on Data-Centric Machine Learning for Medical Images and Signals.pdf'
     frameBorder="0"
     scrolling="auto"
-    height="750px"
+    height="900px"
     width="100%"
 ></iframe>

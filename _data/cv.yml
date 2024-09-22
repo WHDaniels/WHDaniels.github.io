@@ -15,6 +15,29 @@
     - Automatic/machine colorization, Effective feature fusion
     - Contrastive learning, Neuroevolution
 
+- title: Experience
+  type: time_table
+  contents:
+    - title: Associate Professional Staff I
+      institution: Johns Hopkins University Applied Physics Laboratory
+      year: Spring 2024
+      description:
+        - Applied research and engineering for machine learning capabilities with the A3G Weapon Control Concepts Development Group.
+    - title: Fall Intern
+      institution: NASA Goddard Space Flight Center, Greenbelt, Maryland
+      year: Fall 2022
+      description:
+        - Developed multiple neural network regression models to predict in-situ water clarity from multispectral satellite data.
+        - Built a codebase for data collection, model training, and visualization with flexibility in mind for the NASA team going forward.
+        - Validated a variety of trained models (w/ various hyperparameters and architectures) for performance on multispectral/in-situ test sets.
+    - title: Summer Intern 
+      institution: NASA Goddard Space Flight Center, Greenbelt, Maryland
+      year: Summer 2022
+      description:
+        - Investigated using unsupervised deep generative models for supplementing current NASA remote sensing datasets.
+        - Trained a modified StyleGAN2-ADA model to convergence through various training paradigms given scarce data.
+        - Explored routes to quantitatively evaluate quality of generated samples through trained regression models.
+
 - title: Education
   type: time_table
   contents:
@@ -35,24 +58,6 @@
       description:
         - <i> Cum laude </i>
         - 'Concentration: Second Discipline in Philosophy'
-
-- title: Experience
-  type: time_table
-  contents:
-    - title: Fall Intern
-      institution: NASA Goddard Space Flight Center, Greenbelt, Maryland
-      year: Fall 2022
-      description:
-        - Developed multiple neural network regression models to predict in-situ water clarity from multispectral satellite data.
-        - Built a codebase for data collection, model training, and visualization with flexibility in mind for the NASA team going forward.
-        - Validated a variety of trained models (w/ various hyperparameters and architectures) for performance on multispectral/in-situ test sets.
-    - title: Summer Intern 
-      institution: NASA Goddard Space Flight Center, Greenbelt, Maryland
-      year: Summer 2022
-      description:
-        - Investigated using unsupervised deep generative models for supplementing current NASA remote sensing datasets.
-        - Trained a modified StyleGAN2-ADA model to convergence through various training paradigms given scarce data.
-        - Explored routes to quantitatively evaluate quality of generated samples through trained regression models.
 
 # - title: Open Source Projects
 #   type: time_table
